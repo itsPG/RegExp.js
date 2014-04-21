@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/webfont.css">
+
+        <style>
+            body {
+            	font-family: monaco;
+            	background: #CDC;
+            }
+            .PG_regex_matched_odd {
+            	background: #009;
+            	color: #FFF;
+
+            }
+            .PG_regex_matched_even {
+            	background: #090;
+            	color: #FFF;
+            }
+            .PG_regex_normal {
+            	
+            	width:100%;
+            }
+
+            .monaco {
+            	font-family: monaco;
+            }
+            .PG_block {
+            	background: #F6FFF6;
+            }
+            .PG_input_block {
+            	background: #FFE;
+
+            }
+            .PG_bg_yellow {
+            	width: 100%;
+            	background: #FFE;
+            	padding: 10px;
+            	word-wrap: break-word;
+            }
+            .usefullink {
+            	width: 250px;
+            	-webkit-border-radius: 50px;
+            	-webkit-border-top-right-radius: 10px;
+            	-webkit-border-bottom-left-radius: 10px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <a href="https://github.com/itsPG/RegExp.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-md-6"><h1>RegExp.js</h1></div>
+        <div class="col-md-6"><h4>This awesome tool is inspired by rubular</h4></div>
+        <div class="col-md-8">
+        	<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+       		<p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+        	<h3>Useful links</h3>
+        	<a href="http://rubular.com" target="_blank"><p>http://rubular.com</p></a>
+        	<a href="http://scriptular.com" target="_blank"><p>http://scriptular.com</p></a>
+        	<a href="http://regexpal.com" target="_blank"><p>http://regexpal.com</p></a>
+        	<h3>Ads</h3>
+        	<img src="img/nagilogo.png" class="usefullink">
+
+        </div>
+	　</div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+    	<div class="col-md-12">
+    		<input type="text" class="form-control" id="regex_cmd" value="a">
+        	<input type="checkbox" id="regex_i_flag"> set i flag <br>
+    	</div>
+    	<div class="col-md-4">
+        	<textarea class="form-control monaco PG_input_block" rows="25" id="regex_input">
+This is Regular Expression Test.
+In theoretical computer science and formal language theory, a regular expression (abbreviated regex or regexp) is a sequence of characters that forms a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. "find and replace"-like operations. The concept arose in the 1950s, when the American mathematician Stephen Kleene formalized the description of a regular language, and came into common use with the Unix text processing utilities ed, an editor, and grep (global regular expression print), a filter.
+正規表現（せいきひょうげん、英: regular expression）とは、文字列の集合を一つの文字列で表現する方法の一つである。
+
+         Regular Expression Test &lt; &gt; </textarea>
+    	</div>
+    	<div class="col-md-8">
+    		<p id="regex_result" class="monaco PG_bg_yellow">Loading...</p>
+    		<br><br>
+    		<div id="regex_group_result" class="monaco PG_bg_yellow">group result</div>
+    	</div>
+
+    	<div class="col-md-12">
+    		<hr>
+        	
+    	</div>
+    </div>
+      <!-- Example row of columns -->
+      <div class="row">
+
+      <hr>
+
+      <footer>
+        <p>&copy; PG Tsai @ Synology 2014</p>
+      </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            // e.src='//www.google-analytics.com/analytics.js';
+            // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            // ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+<script>
+var PG_regex = function()
+{
+	var regex_input = "";
+	var regex_cmd = "";
+	var regex_flag = "";
+	var left_input = "";
+	var RE;
+	var regex_block = [];
+	var raw_result = "";
+
+	this.result = [];
+	this.group_result = [];
+
+	this.init = function(_regex_cmd, _regex_input, _regex_flag)
+	{
+		regex_cmd = _regex_cmd;
+		regex_input = _regex_input;
+		regex_flag = _regex_flag || "";
+		left_input = _regex_input;
+		$("#regex_cmd").removeClass("alert-danger");
+		try
+		{
+			RE = new RegExp(regex_cmd, regex_flag);
+		}
+		catch(e)
+		{
+			$("#regex_cmd").addClass("alert-danger");
+		}
+		return true;
+	}
+
+	this.get_block = function()
+	{
+		return regex_block;
+	}
+
+
+	this.pickup = function()
+	{
+		var ret = 
+		{
+			lead_text: "",
+			matched_text: "", 
+			found: false,
+			origin_RE: null,
+			start_index: null,
+			end_index: null,
+		};
+		ret.start_index = left_input.search(RE);
+		if (ret.start_index === -1)
+		{
+			return false;
+		}
+		ret.found = true;
+		ret.origin_RE = left_input.match(RE);
+		ret.matched_text = ret.origin_RE[0];
+		if (ret.matched_text.length === 0)
+		{
+			return false;
+		}
+		ret.end_index = ret.start_index + ret.matched_text.length;
+		ret.lead_text = left_input.substr(0, ret.start_index);
+		left_input = left_input.substr(ret.end_index);
+		regex_block.push(ret);
+		return true;
+	}
+	var escape_HTML = function(str)
+	{
+		var ret = str;
+		ret = ret.replace(/ /g, "&nbsp;");
+		ret = ret.replace(/</g, "&lt;");
+		ret = ret.replace(/>/g, "&gt;");
+		ret = ret.replace(/<\t/g, "&lt;");
+		ret = ret.replace(/\n/g, "<br>");
+		return ret;
+	}
+	var create_element = function(text_str, class_str)
+	{
+		var ret = document.createElement('span');
+		ret.className = class_str;
+		ret.innerHTML = escape_HTML(text_str);
+		return ret;
+	}
+	this.save_result = function()
+	{
+		var i, item, tmp, j;
+		var group_result_tmp;
+		for (i = 0; i < regex_block.length; i++)
+		{
+			group_result_tmp = [];
+			item = regex_block[i];
+			this.result.push(create_element(item.lead_text, 'PG_regex_normal'));
+
+			if (i%2 === 0)
+			{
+				tmp = 'PG_regex_matched_even';
+			}
+			else
+			{
+				tmp = 'PG_regex_matched_odd';
+			}
+			this.result.push(create_element(item.matched_text, tmp));
+			if (typeof item.origin_RE !== 'string')
+			{
+				for (j = 1; j < item.origin_RE.length; j++)
+				{
+					group_result_tmp.push(item.origin_RE[j]);
+					//console.log(typeof item.origin_RE[j]);
+				}
+			}
+			//raw_result += item.lead_text + item.matched_text;
+			this.group_result.push(group_result_tmp)
+		}
+		this.result.push(create_element(left_input, "PG_regex_normal"));
+		raw_result += left_input;
+	}
+	this.output_result = function()
+	{
+		var i, j;
+		for (i = 0; i < this.result.length; i++)
+		{
+			document.getElementById("regex_result").appendChild(this.result[i]);
+		}
+		var tmp = "group result<br>";
+		for (i = 0; i < this.group_result.length; i++)
+		{
+			for (j = 0; j < this.group_result[i].length; j++)
+			{
+				tmp += escape_HTML(this.group_result[i][j]) + " ";
+			}
+			if (this.group_result[i].length > 0)
+			{
+				tmp += '<br>';
+			}
+		}
+		document.getElementById("regex_group_result").innerHTML = tmp;
+
+	}
+	this.go = function()
+	{
+		while (this.pickup());
+		this.save_result();
+		this.output_result();
+	}
+
+}
+$(document).ready(function()
+{
+
+	var refresh_output = function()
+	{
+		$('#regex_result').html('');
+		var PG = new PG_regex();
+		var regex_cmd = $('#regex_cmd').val();
+		var regex_input = $('#regex_input').val();
+		var regex_flag = "";
+		if ($('#regex_i_flag').is(':checked') === true)
+		{
+			regex_flag += 'i';
+		}
+		PG.init(regex_cmd, regex_input, regex_flag);
+		PG.go();
+	}
+	$(document).on('keydown', function()
+	{
+		setTimeout(refresh_output, 10);
+	});
+	$('#regex_i_flag').on('click', function()
+	{
+		setTimeout(refresh_output, 10);
+	});
+	refresh_output();
+
+});
+</script>
+</html>

@@ -1,0 +1,12 @@
+@font-face{ 
+	font-family: 'monaco';
+	src: url('../fonts/monaco-webfont.eot');
+	src: url('../fonts/monaco-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/monaco-webfont.woff') format('woff'),
+	     url('../fonts/monaco-webfont.ttf') format('truetype'),
+	     url('../fonts/monaco-webfont.svg#webfont') format('svg');
+}
+
+.testmonaco {
+	font-family: 'monaco';
+}
