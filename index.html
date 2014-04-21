@@ -48,11 +48,19 @@
             	padding: 10px;
             	word-wrap: break-word;
             }
+            .PG_cheet_sheet {
+            	background: #FFE;
+            	padding: 10px;
+            	word-wrap: break-word;
+            }
             .usefullink {
             	width: 250px;
             	-webkit-border-radius: 50px;
             	-webkit-border-top-right-radius: 10px;
             	-webkit-border-bottom-left-radius: 10px;
+            }
+            .PG_regex_cmd {
+
             }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -70,7 +78,10 @@
     <div class="jumbotron">
       <div class="container">
         <div class="col-md-6"><h1>RegExp.js</h1></div>
-        <div class="col-md-6"><h4>This awesome tool is inspired by rubular</h4></div>
+        <div class="col-md-6">
+        	<h4>A JavaScript Regular Expression Tester.</h4>
+        	<h4>This awesome tool is inspired by rubular.</h4>
+        </div>
         <div class="col-md-8">
         	<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
        		<p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
@@ -82,15 +93,57 @@
         	<a href="http://regexpal.com" target="_blank"><p>http://regexpal.com</p></a>
         	<h3>Ads</h3>
         	<img src="img/nagilogo.png" class="usefullink">
-
         </div>
 	　</div>
     </div>
 
     <div class="container">
     <div class="row">
+    	<div class="col-md-4 ">
+    		<p class="PG_cheet_sheet">
+    			<br> . any char
+				<br>[abc] one char: a,b,c.
+				<br>[a-z] one char in range: a-z
+				<br>[^a] one char that not in: a,b,c.
+				<br> ?  0~1 times
+    			<br> *  0~any times
+    			<br> +  1~any times
+				<br> \n \t \r \v \0 \xhh \uhhhh 
+				<br> ^ start of the string
+				<br> $ end of the string
+    		</p>
+    	</div>
+    	<div class="col-md-4 ">
+    		<p class="PG_cheet_sheet">
+				<br>\w word [A-Za-z0-9_]
+				<br>\W Non-word [^A-Za-z0-9_]
+				<br> \d Digit [0-9]
+				<br> \D Non-digit [^0-9]
+				<br> \s Whitespace
+				<br> \S Non-whitespace
+				<br> ([\f\n\r\t\v\u00A0\u2028\u2029])
+				<br> \b word boundary
+				<br> \B Non-word boundary
+    		</p>
+    	</div>
+    	<div class="col-md-4">
+    		<p class="PG_cheet_sheet">
+    			<br> {n} exactly n times
+    			<br> {n,} n or more times
+    			<br> {n,m} n~m times
+    			<br> <span style="color:blue;">postfix ?</span> as few as possible
+    			<br> (...) Capturing group
+    			<br> (?:...) Non-capturing group
+    			<br> ...|... Alternation operator
+    			<br> (?=...) Positive lookahead
+    			<br> (?!...) Negative lookahead
+
+    		</p>
+    	</div>
+    </div>
+    <div class="row">
     	<div class="col-md-12">
-    		<input type="text" class="form-control" id="regex_cmd" value="a">
+    		<input type="text" class="form-control PG_regex_cmd" id="regex_cmd" value="a">
         	<input type="checkbox" id="regex_i_flag"> set i flag <br>
     	</div>
     	<div class="col-md-4">
